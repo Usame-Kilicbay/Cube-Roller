@@ -53,11 +53,11 @@ public class PlayerMovement : MonoBehaviour
     {
         bounds = boxCollider.bounds;
 
-        forward = new Vector3(0, -bounds.size.y / 2, bounds.size.z / 2);
-        back = new Vector3(0, -bounds.size.y / 2, -bounds.size.z / 2);
-        left = new Vector3(-bounds.size.x / 2, -bounds.size.y / 2, 0);
-        right = new Vector3(bounds.size.x / 2, -bounds.size.y / 2, 0);
-    }
+		forward = new Vector3(0, -bounds.size.y / 2, bounds.size.z / 2);
+		back = new Vector3(0, -bounds.size.y / 2, -bounds.size.z / 2);
+		left = new Vector3(-bounds.size.x / 2, -bounds.size.y / 2, 0);
+		right = new Vector3(bounds.size.x / 2, -bounds.size.y / 2, 0);
+	}
 
     private void Update()
     {
@@ -164,9 +164,11 @@ public class PlayerMovement : MonoBehaviour
 
 		transform.RotateAround(point, axis, 90 - angle);
 
-        // Olası Float sapmalarını engellemek için pozisyonu yakın değerlere yuvarlıyor
-        transform.position = new Vector3(Mathf.Round(transform.position.x), startPosY, Mathf.Round(transform.position.z));
-        
+        // Olası Float sapmalarını engellemek için iki boyutlu dizideki karşılığı olan hücrenin pozisyonuna göre ayarlanıyor
+        Vector3 snapPos = gridGenerator.cells[gridZ][gridX];
+        snapPos.y = startPosY;
+        transform.position = snapPos;
+
         canRoll = true;
 	}
 }

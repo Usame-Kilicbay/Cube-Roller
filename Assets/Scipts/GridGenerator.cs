@@ -74,7 +74,6 @@ public class GridGenerator : MonoBehaviour
 		}
 		else
 		{
-			Debug.LogError(gridDepth / 2 + (cellDepth));
 			return gridDepth / 2 - (cellDepth / 2);
 		}
 	}

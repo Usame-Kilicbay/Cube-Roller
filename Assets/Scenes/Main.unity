@@ -435,8 +435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 7198407669347366931, guid: aa597c891ea99ec40ab0cf9f7b4caca3,
     type: 3}
-  gridWidth: 8
-  gridDepth: 8
+  gridWidth: 6
+  gridDepth: 6
   cellWidth: 0
   cellHeight: 0
   cellDepth: 0
